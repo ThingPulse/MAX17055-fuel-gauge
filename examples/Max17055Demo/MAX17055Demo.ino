@@ -27,8 +27,8 @@ void loop() {
     Serial.printf("Capacity: %d\n", gauge.getCapacity());
     Serial.printf("Percentage: %f%\n", gauge.getStateOfCharge());
     Serial.printf("Cell Voltage: %fmV\n", gauge.getCellVoltage());
-    Serial.printf("Current: %.2fmA\n", gauge.getCurrent());
-    Serial.printf("Average current: %fmA\n", gauge.getTemperature());
+    Serial.printf("Current: %.2fuA\n", gauge.getCurrent());
+    Serial.printf("Average current: %fuA\n", gauge.getTemperature());
     Serial.printf("Temperature: %f°C\n", gauge.getTemperature());
     Serial.printf("Fully charged: %s\n", gauge.isBatteryFullyCharged() ? "yes" : "no");
     Serial.printf("Data ready: %s\n", gauge.isDataReady() ? "yes" : "no");

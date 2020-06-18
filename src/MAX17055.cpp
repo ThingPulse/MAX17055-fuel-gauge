@@ -63,13 +63,12 @@ float MAX17055::getCellVoltage() {
 }
 
 float MAX17055::getCurrent() {
-    uint16_t rawCurrent = readReg16Bit(REG_CURRENT);
-    Serial.println(rawCurrent, BIN);
-    return convertTwosComplement(rawCurrent) * currentLSB;
+    int16_t rawCurrent = readReg16Bit(REG_CURRENT);
+    return rawCurrent * currentLSB;
 }
 
 float MAX17055::getAverageCurrent() {
-    uint16_t rawAverageCurrent = readReg16Bit(REG_AVERAGE_CURRENT);
+    int16_t rawAverageCurrent = readReg16Bit(REG_AVERAGE_CURRENT);
     return rawAverageCurrent * currentLSB;
 }
 
