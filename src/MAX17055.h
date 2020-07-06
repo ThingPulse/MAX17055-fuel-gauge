@@ -100,6 +100,7 @@ class MAX17055 {
         void  setCapacity(uint16_t batteryCapacity);
         void setBatteryModel(uint16_t model);
         uint16_t getCapacity();
+        uint16_t getRemainingCapacity();
         float getStateOfCharge();
         float getCellVoltage();
         void setVEmpty(float vEmpty);
@@ -107,6 +108,8 @@ class MAX17055 {
         float getTemperature();
         float getCurrent();
         float getAverageCurrent();
+        uint16_t getCycleCount();
+        uint16_t getTimeToEmpty();
         boolean isBatteryFullyCharged();
         boolean isDataReady();
         boolean isBatteryEmpty();
@@ -114,6 +117,7 @@ class MAX17055 {
 
     private:
         float rSense = 0.01; //default internal resist sensor
+        uint16_t designCapacity = 2500;
         uint8_t i2cAddress = 0x36;
         float capacityLSB;
         float voltageLSB = 0.078125;
@@ -122,6 +126,7 @@ class MAX17055 {
         void setLSB();
         uint16_t readReg16Bit(uint8_t reg);
         void writeReg16Bit(uint8_t reg, uint16_t value);
+        void writeAndVerifyReg16Bit(uint8_t reg, uint16_t value);
 
         int16_t convertTwosComplement(uint16_t value);
 };
